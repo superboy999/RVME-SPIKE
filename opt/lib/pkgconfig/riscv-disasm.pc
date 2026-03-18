@@ -1,0 +1,11 @@
+prefix=/cluster/home/geyh/RV/riscv_tool/riscv_isa_sim/riscv-isa-sim/opt
+exec_prefix=/cluster/home/geyh/RV/riscv_tool/riscv_isa_sim/riscv-isa-sim/opt
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: riscv-disasm
+Description: RISC-V disassembler
+Version: git
+Libs: -Wl,-rpath,${libdir} -L${libdir} -ldisasm
+Cflags: -I${includedir} 
+URL: http://riscv.org/download.html#tab_disasm
