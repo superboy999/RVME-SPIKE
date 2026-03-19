@@ -1,3 +1,17 @@
+# How to use:
+1. 以测试layernorm层算法为例，首先利用GNU工具链将layernorm.c编译成layernorm可执行文件。
+``` bash
+/xuantie-gnu-toolchain/opt/riscv/bin/riscv64-unknown-elf-gcc -march=rv64gcv_zfh_xtheadmatrix -mabi=lp64d -O3 layernorm.c -o layernorm -lm -static
+```
+
+2. 运行spike
+
+``` bash
+/riscv-isa-sim/opt/bin/spike --isa=rv64gc__matrix /riscv-pk/opt/riscv64-unknown-elf/bin/pk /xuantie-gnu-toolchain/test/rvme/tests/layernorm> layernorm.log 2>&1
+```
+检查输出log文件。Log文件包含两部分输出，调试功能输出和算法显式输出。调试功能输出是上述扩展的非侵入式调试机制输出的内容，可以选择性的输出一些内容，例如Tile寄存器的值，内存访问行为以及CSR状态等。
+
+
 Spike RISC-V ISA Simulator
 ============================
 
